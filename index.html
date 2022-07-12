@@ -8,13 +8,16 @@
   </head>
 
   <script>
-    AFRAME.registerComponent('markerhandler', {
+    document.addEventListener("camera-init", function () {
+      alert("camera-init");
+    });
+    AFRAME.registerComponent("markerhandler", {
       init: function () {
-        this.el.sceneEl.addEventListener('markerFound', () => {
+        this.el.sceneEl.addEventListener("markerFound", function () {
           // redirect to custom URL e.g. google.com
           alert("found");
-        })
-      }
+        });
+      },
     });
   </script>
 
@@ -29,6 +32,7 @@
     >
       <a-nft
         type="nft"
+        markerhandler
         url="assets/marker"
         smooth="true"
         smoothCount="10"
@@ -39,6 +43,7 @@
       </a-nft>
       <a-nft
         type="nft"
+        markerhandler
         url="assets/kindle"
         smooth="true"
         smoothCount="10"
